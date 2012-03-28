@@ -7,6 +7,7 @@ Copyright meg
 from __future__ import print_function 
 import time
 import math
+import random
 
 __version__ = "$REV$"
 __author__ = "Stu dent <stu@dent.com>"
@@ -119,4 +120,5 @@ def printResult( count, delta ):
 squirt( 100 )
 superFast( 100000)
 #optimus(  100000 )
+
 print( "Ferdig")
