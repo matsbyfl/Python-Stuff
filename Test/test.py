@@ -60,7 +60,7 @@ def isPrime( number ):
 def optimus( stop ):
     startTime = time.time()
     primes = []
-    for number in range( 2, stop):
+    for number in range( 2, stop +1 ):
         if isPrime( number ) == "true":
             primes.append( number)
     stopTime = time.time()
@@ -69,10 +69,10 @@ def optimus( stop ):
 def superFast( stop ):
     startTime = time.time()
     primes = [2]
-    for number in range( 2, stop ):
+    for number in range( 3, stop +1, 2 ):
         isPrime = True
         for prime in primes:
-            if number < 2 or number % prime == 0:
+            if number % prime == 0:
                 isPrime = False
                 break
         if isPrime:   
@@ -83,13 +83,21 @@ def superFast( stop ):
 def squirt( stop ):
     startTime = time.time()
     primes = [2]
-    for number in range( 2, stop ):
+    # Only step through odd numbers
+    numbers = range( 3, stop + 1, 2 )
+    for number in numbers:
         isPrime = True
         for prime in primes:
-            if ( math.sqrt(number) < prime ) or (number % prime) == 0:
+            root = int(math.sqrt(number))
+            print( number, prime, root ) 
+            if  root > prime:
+                isPrime = False
+                break
+            if number % prime == 0:
                 isPrime = False
                 break
         if isPrime:   
+            print( "Hit {0}".format( number ))
             primes.append(number)
     stopTime = time.time()
     printResult( len(primes), stopTime - startTime )
@@ -108,7 +116,7 @@ def printResult( count, delta ):
 #    print( "3 Squared {0}".format( power(3, 2)))
 #    print( "3 cubed {0}".format( power(3, 3)))
 #    print( "3 tessrrr {0}".format( power(3, 4)))
-squirt( 100000 )
+squirt( 100 )
 superFast( 100000)
-optimus(  100000 )
+#optimus(  100000 )
 print( "Ferdig")
