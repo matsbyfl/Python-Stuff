@@ -1,0 +1,10 @@
+# For URL håndtering
+urllib2 
+
+#Python doc
+Sphinx
+
+#Konvertere fra Python 2 til 3
+2to3
+
+Fabric?
